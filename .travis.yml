@@ -5,3 +5,14 @@ before_install:
   - docker build -t faiscodingdocker/docker-react -f Dockerfile.dev .
 script:
   - docker run -e CI=true faiscodingdocker/docker-react npm run test
+deploy:
+  provider: elasticbeanstalk
+  region: "ca-central-1"
+  app: "docker"
+  env: "docker-env"
+  bucket_name: "elasticbeanstalk-ca-central-1-211125713832"
+  bucket_path: "docker"
+  on:
+    branch: main
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
