@@ -8,8 +8,8 @@ script:
 deploy:
   provider: elasticbeanstalk
   region: "ca-central-1"
-  app: "docker"
-  env: "docker-env"
+  app: "frontend"
+  env: "frontend-env"
   bucket_name: "elasticbeanstalk-ca-central-1-211125713832"
   bucket_path: "docker"
   on:
